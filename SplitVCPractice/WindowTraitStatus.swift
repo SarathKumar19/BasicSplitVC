@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum DeviceTraitStatus {
+enum WindowTraitStatus {
 	/// IPAD and others: Width: Regular, Height: Regular
 	case wRhR_Portrait
 	/// IPAD Landscape
@@ -31,30 +31,39 @@ enum DeviceTraitStatus {
 		return [.wRhR_Portrait, .wRhR_Landscape].contains(self)
 	}
 
-	static func traitStatus(for window: UIWindow?) -> DeviceTraitStatus {
-		guard let window = window else {
-			return self.current
+	static func traitStatus(for window: UIWindow?) -> WindowTraitStatus {
+		guard let window = window, let windowScene = window.windowScene else {
+			return self.screenTraitStatus
 		}
-		return self.traitStatus(for: window.traitCollection, withWindowSize: window.bounds.size)
+		return self.traitStatus(
+			for: window.traitCollection,
+			withWindowSize: window.bounds.size,
+			isLandscape: windowScene.interfaceOrientation.isLandscape
+		)
 	}
 }
 
-private extension DeviceTraitStatus {
-	static var current: DeviceTraitStatus {
+private extension WindowTraitStatus {
+	static var screenTraitStatus: WindowTraitStatus {
 		let screen = UIScreen.main
-		return self.traitStatus(for: screen.traitCollection, withWindowSize: screen.bounds.size)
+		return self.traitStatus(
+			for: screen.traitCollection,
+			withWindowSize: screen.bounds.size,
+			isLandscape: UIDevice.current.orientation.isLandscape
+		)
 	}
 
 	static func traitStatus(
 		for traitCollection: UITraitCollection,
-		withWindowSize windowSize: CGSize
-	) -> DeviceTraitStatus {
+		withWindowSize windowSize: CGSize,
+		isLandscape: Bool
+	) -> WindowTraitStatus {
 		switch (traitCollection.horizontalSizeClass, traitCollection.verticalSizeClass) {
 		case (.regular, .regular):
 			// NOTE: In iPad landscape mode, when multiple windows are put side by side,
 			// a window can be "wRhR_Landscape" only if it's width >= two third of screen width
 			let hasTwoThirdScreenWidth = windowSize.width >= UIScreen.main.bounds.width * (2 / 3)
-			if UIDevice.isLandscape, hasTwoThirdScreenWidth {
+			if UIDevice.current.orientation.isLandscape, hasTwoThirdScreenWidth {
 				return .wRhR_Landscape
 			}
 			return .wRhR_Portrait
@@ -67,13 +76,5 @@ private extension DeviceTraitStatus {
 		default:
 			return .wChR
 		}
-	}
-}
-
-extension UIDevice {
-	static var isLandscape: Bool {
-		return UIDevice.current.orientation.isValidInterfaceOrientation
-			? UIDevice.current.orientation.isLandscape
-			: UIApplication.shared.statusBarOrientation.isLandscape
 	}
 }

@@ -30,7 +30,7 @@ private extension SplitViewController {
 	func customizeSplitVC() {
 		// NOTE: Set 'preferredDisplayMode' to ".oneBesideSecondary" and
 		// 'preferredSplitBehavior' to ".tile", in order to force SplitVC to display all VCs
-		let traitStatus = DeviceTraitStatus.traitStatus(for: self.view.window)
+		let traitStatus = WindowTraitStatus.traitStatus(for: self.view.window)
 		self.preferredDisplayMode = traitStatus.isLandscape ? .oneBesideSecondary : .automatic
 		self.preferredSplitBehavior = traitStatus.isLandscape ? .tile : .automatic
 		if traitStatus.isiPad {

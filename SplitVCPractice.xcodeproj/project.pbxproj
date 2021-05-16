@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B30994CD265115DE00E78D0A /* DeviceTraitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30994CC265115DE00E78D0A /* DeviceTraitStatus.swift */; };
+		B30994CD265115DE00E78D0A /* WindowTraitStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30994CC265115DE00E78D0A /* WindowTraitStatus.swift */; };
 		B322E401264255B800A35CE0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322E400264255B800A35CE0 /* AppDelegate.swift */; };
 		B322E403264255B800A35CE0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B322E402264255B800A35CE0 /* SceneDelegate.swift */; };
 		B322E408264255B800A35CE0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B322E406264255B800A35CE0 /* Main.storyboard */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B30994CC265115DE00E78D0A /* DeviceTraitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTraitStatus.swift; sourceTree = "<group>"; };
+		B30994CC265115DE00E78D0A /* WindowTraitStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowTraitStatus.swift; sourceTree = "<group>"; };
 		B322E3FD264255B800A35CE0 /* SplitVCPractice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitVCPractice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B322E400264255B800A35CE0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B322E402264255B800A35CE0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 				B322E400264255B800A35CE0 /* AppDelegate.swift */,
 				B322E402264255B800A35CE0 /* SceneDelegate.swift */,
 				B322E4462642587600A35CE0 /* SplitViewController.swift */,
-				B30994CC265115DE00E78D0A /* DeviceTraitStatus.swift */,
+				B30994CC265115DE00E78D0A /* WindowTraitStatus.swift */,
 				B322E44E2642590C00A35CE0 /* PrimaryTableViewController.swift */,
 				B322E43E2642582100A35CE0 /* SecondaryViewController.swift */,
 				B322E406264255B800A35CE0 /* Main.storyboard */,
@@ -272,7 +272,7 @@
 			files = (
 				B322E40B264255B800A35CE0 /* SplitVCPractice.xcdatamodeld in Sources */,
 				B322E401264255B800A35CE0 /* AppDelegate.swift in Sources */,
-				B30994CD265115DE00E78D0A /* DeviceTraitStatus.swift in Sources */,
+				B30994CD265115DE00E78D0A /* WindowTraitStatus.swift in Sources */,
 				B322E44F2642590C00A35CE0 /* PrimaryTableViewController.swift in Sources */,
 				B322E403264255B800A35CE0 /* SceneDelegate.swift in Sources */,
 				B322E43F2642582100A35CE0 /* SecondaryViewController.swift in Sources */,
